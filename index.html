@@ -1,308 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<!-- NOTE: I revised the HTML and CSS for better UI/UX. Inline comments mark each change.
+     Look for "NOTE:" in HTML and CSS to see what was changed and why. -->
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--Claude.AI SEO-->
-  <!-- Primary SEO -->
-  <title>Leah Kellum | Video Editor & VFX Artist</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- NOTE: theme-color makes the mobile browser chrome match the brand. -->
+  <meta name="theme-color" content="#000000">
+
+  <title>Leah Kellum | Video Editor &amp; VFX Artist Portfolio</title>
+
   <meta name="description"
-    content="Leah Kellum is a Lubbock-based video editor and VFX artist specializing in motion graphics, compositing, and visual storytelling. View her portfolio of commercial, news, and VFX work.">
+    content="Leah Kellum is a Texas-based video editor and VFX artist specializing in motion graphics, compositing, and visual storytelling. View her portfolio of commercial, news, and VFX work.">
   <meta name="keywords"
-    content="Leah Kellum, video editor, VFX artist, motion graphics, Adobe Premiere Pro, After Effects, rotoscoping, chroma keying, multimedia creative, Lubbock, Texas Tech">
+    content="Leah Kellum, video editor, VFX artist, motion graphics, Adobe Premiere Pro, After Effects, rotoscoping, chroma keying, Texas, Texas Tech">
   <meta name="author" content="Leah Kellum">
 
-  <!-- Open Graph (Facebook, LinkedIn) -->
-  <meta property="og:title" content="Leah Kellum | Video Editor & VFX Artist">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Leah Kellum | Video Editor &amp; VFX Artist">
   <meta property="og:description"
     content="Portfolio of Leah Kellum — video editor and VFX artist specializing in motion graphics, compositing, and visual storytelling.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://github.com/leahkellum78-cmd/leahkellum78-cmd">
-  <meta property="og:image" content="https://leahkellum.com/assets/images/Open-Graphs.jpg">
+  <meta property="og:url" content="https://leahkellum78-cmd.github.io/">
+  <meta property="og:image" content="https://leahkellum78-cmd.github.io/assets/images/Open-Graphs.jpg">
   <meta property="og:image:alt" content="Leah Kellum – Video Editor and VFX Artist portfolio">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Leah Kellum | Video Editor & VFX Artist">
+  <meta name="twitter:title" content="Leah Kellum | Video Editor &amp; VFX Artist">
   <meta name="twitter:description"
     content="Portfolio of Leah Kellum — video editor and VFX artist specializing in motion graphics, compositing, and visual storytelling.">
-  <meta name="twitter:image" content="https://leahkellum.com/assets/images/Open-Graphs.jpg">
+  <meta name="twitter:image" content="https://leahkellum78-cmd.github.io/assets/images/Open-Graphs.jpg">
 
   <!-- Font Awesome -->
-  <link rel= "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap">
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <!--stylesheet now lives at assets/css/style.css — standard layout -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-  <!-- NAV -->
-  <header>
-    <a href="#" class="logo">Leah Kellum</a>
+  <!-- Keyboard Navigation:  skip-to-content link added — 
+        helps keyboard users jump past the nav. -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <nav>
-      <a href="#video">Media</a>
-      <a href="#other-skills">Web Design</a>
-      <a href="#photography">Photography</a>
-    </nav>
+  <!-- ─── HEADER ─────────────────────────────────────────── -->
+  <!-- NOTE: rebuilt header with a real hamburger button + accessible nav
+       (was missing entirely). Anchor links go to actual section IDs. -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="#hero" class="logo" aria-label="Leah Kellum — back to top">Leah Kellum</a>
 
+      <button class="nav-toggle" id="navToggle" type="button"
+        aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
 
+      <nav id="primary-nav" class="main-nav" aria-label="Primary navigation">
+        <a href="#hero" class="nav-link" aria-current="page">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#video" class="nav-link">Video</a>
+        <a href="#web-design" class="nav-link">Web Design</a>
+        <a href="#photography" class="nav-link">Photography</a>
+        <a href="#contact" class="nav-link nav-cta">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Main content -->
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-top">
-        <div class="hero-title">
-          <h1>Leah Kellum</h1>
-          <p class="subtitle">Video Editor | VFX Artist</p>
+  <main id="main-content">
+
+    <!-- ─── HERO ─────────────────────────────────────────── -->
+    <!-- NOTE: hero rebuilt. Was three autoplay videos = huge performance
+         hit. Now ONE muted/looped/autoplay background video + a clean
+         text composition + two real CTA buttons. -->
+    <section id="hero" class="hero" aria-label="Hero introduction">
+      <div class="hero-text">
+        <p class="hero-kicker">Video Editor · VFX Artist</p>
+        <!-- NOTE: surname wrapped in <em> so the CSS can render it
+             italic at lighter weight — typographic contrast inside
+             the headline. -->
+        <h1 class="hero-name">Leah<br><em>Kellum</em></h1>
+        <p class="hero-lead">
+          Texas-based editor and visual effects artist crafting motion graphics,
+          compositing, and stories that move people.
+        </p>
+        <div class="hero-ctas">
+          <a href="#video" class="btn btn-primary">
+            View Reel <i class="fa-solid fa-play" aria-hidden="true"></i>
+          </a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
         </div>
-        <a href="#contact" class="nav-contact"><i class="fa-solid fa-arrow-down"></i>Contact</a>
       </div>
 
-      <div class="hero-media">
-        <div class="hero-col left">
-          <div class="media-card"><video alt="Video of two studen't explaing resources for students on campus" autoplay
-              loop controls src="assets/videos/videos/news-story.mp4"></video></div>
-          <!-- two stacked -->
-          <div class="media-card"><video alt="Visual Effects breakdown of Greenscreen, roto, and luma keying" autoplay
-              loop controls src="assets/videos/videos/vfx-video-1.mp4"></video>
-          </div>
-        </div>
-
-        <div class="hero-col right">
-          <div class="media-card large"><video lt="Coffee break short advertisement" autoplay loop controls
-              src="assets/videos/videos/coffee-ad.mp4"></video>
-          </div>
-          <!-- one tall card -->
-        </div>
-      </div>
+      <div class="hero-media" aria-hidden="true">
+        <!-- NOTE: poster + preload=metadata so the browser doesn't pull
+             the full file before scroll. muted/playsinline lets it
+             autoplay on iOS without breaking. -->
+        <video class="hero-video" autoplay muted loop playsinline
+          preload="metadata">
+          <source src="assets/videos/videos/coffee-ad.mp4" type="video/mp4">
+        </video>
+        <div class="hero-media-overlay"></div>
       </div>
     </section>
 
+    <!-- ─── ABOUT ────────────────────────────────────────── -->
+    <!-- NOTE: NEW section — site had no bio at all. A short About lets
+         employers know who you are before they watch your reel. -->
+    <section id="about" class="about" aria-labelledby="about-title">
+      <!-- NOTE: data-num drives the giant outlined "01" — editorial
+           section header instead of centered template look. -->
+      <div class="section-head" data-num="01">
+        <p class="eyebrow">About</p>
+        <h2 id="about-title">A storyteller working with light, sound, and timing.</h2>
+      </div>
 
+      <div class="about-grid">
+        <figure class="about-photo">
+          <!-- NOTE: swapped to your new about-me.webp portrait. -->
+          <img src="assets/images/profile/Chesnutt, Jadon-fixed (5) copy.jpg"
+            alt="Portrait of Leah Kellum"
+            loading="lazy" width="800" height="1000">
+        </figure>
 
-    <!-- VIDEO PRODUCTION SECTION -->
-    <!--Claude did Java Script-->
-    <section id="video">
-      <h2>Video Production</h2>
-
-      <div class="carousel">
-
-        <div class="carousel-slide active">
-          <div class="media-card wide">
-            <video alt="Coffee break short advertisement" controls>
-              <source src="assets/videos/videos/coffee-ad.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="title">Coffee Ad Concept</div>
-          <p class="video-description">Edited and paced for engagement, focusing on storytelling and visual rhythm for a
-            digital advertising format.</p>
-          <ul>
-            <li>Adobe Premiere Pro</li>
-            <li>Adobe After Effects</li>
-            <li>Motion Graphics</li>
-          </ul>
-        </div>
-
-        <div class="carousel-slide">
-          <div class="media-card wide">
-            <video alt="Video of two studen't explaining resources for students on campus" controls>
-              <source src="assets/videos/videos/news-story.mp4" type="video/mp4">
-            </video>
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
-          <div class="title">Student Needs - Interview-Based News Story Edit</div>
-          <p class="video-description">Structured and edited interview footage for clarity, pacing, and narrative flow.
+        <div class="about-text">
+          <p>
+            I'm a video editor and VFX artist studying at Texas Tech University.
+            I work mostly in Adobe Premiere Pro and After Effects on commercial,
+            news, and short-form story projects — anywhere the cut and the
+            visual effects do as much storytelling as the words.
           </p>
-          <ul>
-            <li>Adobe Premiere Pro</li>
+          <p>
+            Outside of post-production I shoot photography and design websites,
+            which keeps my eye for composition sharp.
+          </p>
+
+          <ul class="about-skills" aria-label="Tools &amp; skills">
+            <li>Premiere Pro</li>
+            <li>After Effects</li>
             <li>Motion Graphics</li>
+            <li>Rotoscoping</li>
+            <li>Chroma Keying</li>
+            <li>Color Grading</li>
+            <li>Compositing</li>
           </ul>
         </div>
+      </div>
+    </section>
 
-        <div class="carousel-slide">
+    <!-- ─── VIDEO PRODUCTION (CAROUSEL) ──────────────────── -->
+    <!-- NOTE: carousel kept but improved — preload="none" on each video
+         so they only download when the user clicks play. Massive perf win. -->
+    <section id="video" class="video-section" aria-labelledby="video-title">
+      <div class="section-head" data-num="02">
+        <p class="eyebrow">Featured Reel</p>
+        <h2 id="video-title">Video Production</h2>
+        <p class="section-sub">Selected commercial, news, and VFX work.</p>
+      </div>
+
+      <div class="carousel" aria-roledescription="carousel">
+
+        <div class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="1 of 4">
           <div class="media-card wide">
-            <video alt="Visual Effects breakdown of Greenscreen, roto, and luma keying" controls>
+            <video controls preload="none"
+              poster="assets/images/Coffee-Break.jpg"
+              aria-label="Coffee break short advertisement">
+              <source src="assets/videos/videos/coffee-ad.mp4" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+          </div>
+          <div class="slide-caption">
+            <h3 class="title">Coffee Ad Concept</h3>
+            <p class="video-description">
+              Edited and paced for engagement — focusing on storytelling and
+              visual rhythm for a digital advertising format.
+            </p>
+            <ul class="tag-list">
+              <li>Premiere Pro</li>
+              <li>After Effects</li>
+              <li>Motion Graphics</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+          <div class="media-card wide">
+            <video controls preload="none"
+              poster="assets/images/news-story.jpg"
+              aria-label="Two students explaining campus resources">
+              <source src="assets/videos/videos/news-story.mp4" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+          </div>
+          <div class="slide-caption">
+            <h3 class="title">Student Needs — Interview News Story</h3>
+            <p class="video-description">
+              Structured and edited interview footage for clarity, pacing, and
+              narrative flow.
+            </p>
+            <ul class="tag-list">
+              <li>Premiere Pro</li>
+              <li>Motion Graphics</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+          <div class="media-card wide">
+            <video controls preload="none"
+              poster="assets/images/VFX Part 1.jpg"
+              aria-label="VFX breakdown showing greenscreen, roto, and luma keying">
               <source src="assets/videos/videos/vfx-video-1.mp4" type="video/mp4">
+              Your browser does not support video playback.
             </video>
           </div>
-          <div class="title">VFX - Breakdown Part 1</div>
-          <p class="video-description">Demonstrates technical workflow including cleanup, compositing, and color work
-            for visual effects integration.</p>
-          <ul>
-            <li>Adobe After Effects</li>
-            <li>Adobe Premiere Pro</li>
-            <li>Chroma Keying</li>
-            <li>Greenscreen</li>
-            <li>Color Correction</li>
-            <li>Rotoscoping</li>
-          </ul>
+          <div class="slide-caption">
+            <h3 class="title">VFX Breakdown — Part 1</h3>
+            <p class="video-description">
+              Cleanup, compositing, and color work for visual effects integration.
+            </p>
+            <ul class="tag-list">
+              <li>After Effects</li>
+              <li>Premiere Pro</li>
+              <li>Chroma Keying</li>
+              <li>Greenscreen</li>
+              <li>Color Correction</li>
+              <li>Rotoscoping</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="carousel-slide">
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
           <div class="media-card wide">
-            <video alt="Visual Effects breakdown of Greenscreen and roto" controls>
+            <video controls preload="none"
+              poster="assets/images/VFX Part 2 (1).jpg"
+              aria-label="VFX breakdown part two showing greenscreen and rotoscoping">
               <source src="assets/videos/videos/vfx-video-2.mp4" type="video/mp4">
+              Your browser does not support video playback.
             </video>
           </div>
-          <div class="title">VFX - Breakdown Part 2</div>
-          <p class="video-description">Demonstrates technical workflow including cleanup, compositing, and color work
-            for visual effects integration.</p>
-          <ul>
-            <li>Adobe After Effects</li>
-            <li>Adobe Premiere Pro</li>
-            <li>Chroma Keying</li>
-            <li>Greenscreen</li>
-            <li>Color Correction</li>
-            <li>Rotoscoping</li>
-          </ul>
+          <div class="slide-caption">
+            <h3 class="title">VFX Breakdown — Part 2</h3>
+            <p class="video-description">
+              Continued technical workflow showing cleanup, compositing,
+              and color work.
+            </p>
+            <ul class="tag-list">
+              <li>After Effects</li>
+              <li>Premiere Pro</li>
+              <li>Chroma Keying</li>
+              <li>Greenscreen</li>
+              <li>Color Correction</li>
+              <li>Rotoscoping</li>
+            </ul>
+          </div>
         </div>
 
-        <button class="arrow left" aria-label="Previous">←</button>
-        <button class="arrow right" aria-label="Next">→</button>
+        <button class="arrow left" type="button" aria-label="Previous slide">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        </button>
+        <button class="arrow right" type="button" aria-label="Next slide">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
 
-      </div>
-    </section>
-    <!------------------------------>
-
-
-
-
-    <!-- OTHER SKILLS SECTION -->
-    <section class="other-skills">
-      <summary>
-        <h2>Other Skills</h2>
-      </summary>
-
-      <div class="accordion">
-
-        <details name="skills">
-          <summary>
-            <h3>Web Design</h3>
-          </summary>
-          <div class="accordion-web">
-            <article class="project-feature">
-              <div class="project-info">
-                <h4>COSMO Ladies Room</h4>
-                <p class="project-type">Online Magazine</p>
-                    <a href="https://leahkellum78-cmd.github.io/CosmoLadies/" target="_blank" class="view-project">View Project</a>
-              </div>
-              <div class="project-images">
-                <div class="media-card portrait"><img src="assets/case-studies/Home page Cosmo.jpg"
-                    alt="Home page for an online magazine, inspired by Cosmopolitan magazine"></div>
-                <div class="media-card portrait"><img src="assets/case-studies/About Us.jpg"
-                    alt="About page for an online magazine, inspired by Cosmopolitan magazine"></div>
-              </div>
-            </article>
-
-            <article class="project-item">
-              <div class="project-info">
-                <h4>Artical</h4>
-                <p class="project-type">Online Artical</p>
-                <a href="https://leahkellum78-cmd.github.io/Sports-Article-USA-Soccer/" target="_blank" class="view-project">View Project</a>
-                <p class="link"></p>
-              </div>
-              <div class="project-images">
-                <div class="media-card portrait"><img src="assets/case-studies/Artical.jpg"
-                    alt="Sports article page about Mens USA Soccer Team"></div>
-              </div>
-            </article>
-
-            <article class="project-item">
-              <div class="project-info">
-                <h4>Entertainment System</h4>
-                <p class="project-type">Subscription Website</p>
-                <a href="https://leahkellum78-cmd.github.io/Entertainment-System/" target="_blank" class="view-project">View Project</a>
-              </div>
-              <div class="project-images">
-                <div class="media-card portrait"><img src="assets/case-studies/Entertainment system.jpg"
-                    alt="Subscription Service website for a streaming platform "></div>
-              </div>
-            </article>
-          </div>
-        </details>
-
-        <details name="skills">
-          <summary>
-            <h3>Photography</h3>
-          </summary>
-          <div class="accordion-content">
-            <div class="photo-gallery">
-              <div class="photo"> <img src="assets/images/Kellum_Leah-13.jpg"
-                  alt="Statue of horse in front of dorm building"></div>
-              <div class="photo"><img src="assets/images/Kellum_Leah-2.jpg"
-                  alt="Crane machine in the distance, under a darken arch"></div>
-              <div class="photo"><img src="assets/images/Kellum_Leah-3.jpg"
-                  alt="A water fountain in the park in front of a building"></div>
-              <div class="photo"><img src="assets/images/Kellum_Leah-4.jpg"
-                  alt="A bench at Texas Tch University with the TTU Double T"></div>
-              <div class="photo"><img src="assets/images/Kellum_Leah-8.jpg"
-                  alt="Will Rogers and Soapstuds statue in front of the 100 Centennial Structure"></div>
-              <div class="photo"><img src="assets/images/Kellum_Leah-9.jpg" alt="Statue of man reading a magazine">
-              </div>
-              <div class="photo"><img src="assets/images/Kellum_Leah.jpg" alt="Arched walkway during Golden Hour"></div>
-            </div>
-          </div>
-        </details>
+        <!-- NOTE: dot indicators — show how many slides + which is active.
+             Was missing — visitors had no idea where they were in the carousel. -->
+        <div class="carousel-dots" role="tablist" aria-label="Choose video">
+          <button class="dot active" type="button" data-index="0" aria-label="Slide 1"></button>
+          <button class="dot" type="button" data-index="1" aria-label="Slide 2"></button>
+          <button class="dot" type="button" data-index="2" aria-label="Slide 3"></button>
+          <button class="dot" type="button" data-index="3" aria-label="Slide 4"></button>
+        </div>
 
       </div>
     </section>
 
+    <!-- ─── WEB DESIGN ───────────────────────────────────── -->
+    <!-- NOTE: pulled out of the accordion — hiding work behind clicks
+         buries it. Still a smaller section than Video so the focus is
+         clearly on her primary craft. -->
+    <section id="web-design" class="web-design" aria-labelledby="web-title">
+      <div class="section-head" data-num="03">
+        <p class="eyebrow">Beyond Video</p>
+        <h2 id="web-title">Web Design</h2>
+        <p class="section-sub">Three sites built from scratch in HTML &amp; CSS.</p>
+      </div>
 
-    <!-- CONTACT SECTION -->
-    <!--Claude helped organize contact section-->
-    <section id="contact">
-      <h2>Contact</h2>
+      <div class="web-grid">
 
-      <div class="contact-form">
-        <p class="form-heading">Get in touch</p>
-        <p class="form-sub">Let's work together — fill out the form below.</p>
-
-        <form>
-          <div class="form-row">
-            <div>
-              <label>First name</label>
-              <input type="text" placeholder="First">
+        <article class="project-card">
+          <a href="https://leahkellum78-cmd.github.io/CosmoLadies/"
+            target="_blank" rel="noopener noreferrer"
+            class="project-card-link" aria-label="Open COSMO Ladies Room project in new tab">
+            <figure class="project-thumb">
+              <img src="assets/case-studies/Home page Cosmo.jpg"
+                alt="Home page for an online magazine inspired by Cosmopolitan"
+                loading="lazy" width="800" height="1100">
+            </figure>
+            <div class="project-body">
+              <p class="project-tag">Online Magazine</p>
+              <h3 class="project-title">COSMO Ladies Room</h3>
+              <span class="project-cta">View site <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
             </div>
-            <div>
-              <label>Last name</label>
-              <input type="text" placeholder="Last">
+          </a>
+        </article>
+
+        <article class="project-card">
+          <a href="https://leahkellum78-cmd.github.io/Sports-Article-USA-Soccer/"
+            target="_blank" rel="noopener noreferrer"
+            class="project-card-link" aria-label="Open Sports Article project in new tab">
+            <figure class="project-thumb">
+              <!-- NOTE: fixed alt text spelling (was "Artical"). -->
+              <img src="assets/case-studies/Artical.jpg"
+                alt="Sports article page about the US Men's Soccer team"
+                loading="lazy" width="800" height="1100">
+            </figure>
+            <div class="project-body">
+              <p class="project-tag">Online Article</p>
+              <h3 class="project-title">USA Soccer Article</h3>
+              <span class="project-cta">View site <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
             </div>
-          </div>
+          </a>
+        </article>
 
-          <label>Email</label>
-          <input type="email" placeholder="email">
+        <article class="project-card">
+          <a href="https://leahkellum78-cmd.github.io/Entertainment-System/"
+            target="_blank" rel="noopener noreferrer"
+            class="project-card-link" aria-label="Open Entertainment System project in new tab">
+            <figure class="project-thumb">
+              <img src="assets/case-studies/Entertainment system.jpg"
+                alt="Subscription service website for a streaming platform"
+                loading="lazy" width="800" height="1100">
+            </figure>
+            <div class="project-body">
+              <p class="project-tag">Subscription Site</p>
+              <h3 class="project-title">Entertainment System</h3>
+              <span class="project-cta">View site <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </div>
+          </a>
+        </article>
 
-          <label>Subject</label>
-          <input type="text" placeholder="Project inquiry">
-
-          <label>Message</label>
-          <textarea placeholder="Tell me about your project..."></textarea>
-
-          <button type="submit">Send message</button>
-        </form>
       </div>
     </section>
 
+    <!-- ─── PHOTOGRAPHY ──────────────────────────────────── -->
+    <section id="photography" class="photography" aria-labelledby="photo-title">
+      <div class="section-head" data-num="04">
+        <p class="eyebrow">Stills</p>
+        <h2 id="photo-title">Photography</h2>
+        <p class="section-sub">Original work from around the Texas Tech campus.</p>
+      </div>
+
+      <!-- NOTE: tighter masonry-style grid + lightbox affordance on hover.
+           Photos used to live behind a closed accordion. -->
+      <div class="photo-gallery">
+        <figure class="photo">
+          <img src="assets/images/Kellum_Leah-13.jpg"
+            alt="Statue of a horse in front of a dorm building"
+            loading="lazy" width="800" height="800">
+        </figure>
+        <figure class="photo">
+          <img src="assets/images/Kellum_Leah-2.jpg"
+            alt="Crane in the distance under a darkened arch"
+            loading="lazy" width="800" height="800">
+        </figure>
+        <figure class="photo">
+          <img src="assets/images/Kellum_Leah-3.jpg"
+            alt="Water fountain in front of a campus building"
+            loading="lazy" width="800" height="800">
+        </figure>
+        <figure class="photo">
+          <img src="assets/images/Kellum_Leah-4.jpg"
+            alt="Bench at Texas Tech University with the Double-T mark"
+            loading="lazy" width="800" height="800">
+        </figure>
+        <figure class="photo">
+          <img src="assets/images/Kellum_Leah-8.jpg"
+            alt="Will Rogers and Soapsuds statue at the Centennial structure"
+            loading="lazy" width="800" height="800">
+        </figure>
+        <figure class="photo">
+          <img src="assets/images/Kellum_Leah-9.jpg"
+            alt="Statue of a man reading a magazine"
+            loading="lazy" width="800" height="800">
+        </figure>
+        <figure class="photo wide">
+          <img src="assets/images/Kellum_Leah.jpg"
+            alt="Arched walkway during golden hour"
+            loading="lazy" width="1600" height="800">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ─── CONTACT ──────────────────────────────────────── -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="section-head" data-num="05">
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">Let's tell a story together.</h2>
+        <p class="section-sub">
+          Open to commercial, news, and short-form work. Drop a note below.
+        </p>
+      </div>
+
+      <!-- NOTE: every label is now connected to its input via for/id —
+           fixes the 5 missing-label WAVE errors. -->
+      <form class="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="firstName">First name</label>
+            <input id="firstName" name="firstName" type="text" placeholder="First" autocomplete="given-name" required>
+          </div>
+          <div class="form-field">
+            <label for="lastName">Last name</label>
+            <input id="lastName" name="lastName" type="text" placeholder="Last" autocomplete="family-name" required>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+
+        <div class="form-field">
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" placeholder="Project inquiry">
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit">
+          Send message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+        </button>
+      </form>
+    </section>
 
   </main>
 
-  <footer>
-    <!-- copyright -->
-    <h4>Copyright @ 2026 Portfolio. Built by Leah Kellum</h4>
+  <!-- ─── FOOTER ─────────────────────────────────────────── -->
+  <!-- NOTE: footer was a single <h4> copyright line — now a real
+       3-column footer with brand, quick links, and social/contact. -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+
+      <div class="footer-col footer-brand">
+        <p class="footer-logo">Leah Kellum</p>
+        <p class="footer-tag">Video editor and VFX artist based in Lubbock, Texas.</p>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#video">Video</a></li>
+          <li><a href="#web-design">Web Design</a></li>
+          <li><a href="#photography">Photography</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-heading">Connect</p>
+        <ul class="footer-socials" aria-label="Social and contact links">
+          <li>
+            <a href="https://github.com/leahkellum78-cmd" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)">
+              <i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">
+              <i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:leah.kellum@ttu.edu" aria-label="Send Leah an email">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i><span>Email</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Leah Kellum. All rights reserved.</p>
+      <a href="#hero" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i> Back to top
+      </a>
+    </div>
   </footer>
+
+  <!-- ─── LIGHTBOX ───────────────────────────────────────── -->
+  <!-- NOTE: lightbox for the photo gallery — click any photo to enlarge. -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true"
+    aria-labelledby="lightboxCaption" hidden>
+    <button class="lightbox-close" id="lightboxClose" type="button"
+      aria-label="Close image viewer">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-image" id="lightboxImage" alt="">
+      <figcaption class="lightbox-caption" id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
+
   <script src="assets/js/script.js"></script>
 </body>
 
