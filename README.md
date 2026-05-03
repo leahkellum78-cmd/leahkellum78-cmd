@@ -1,5 +1,5 @@
 # lkellum 
-# R11804195 Leah Kellum 
+
 # Leah Kellum — Multimedia Portfolio
 
 A single-page portfolio site showcasing video production, web design, and photography work.
