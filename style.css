@@ -1,6 +1,6 @@
 :root {
-  --main-color: black;
-  --accent-color: white;
+  --main-color: #000000;
+  --accent-color: #ffffff;
   --font-heading: 'Alumni Sans', Arial, Helvetica, sans-serif;
   --font-body: 'DM Sans', Arial, Helvetica, sans-serif;
 }
@@ -127,9 +127,14 @@ HERO
   text-decoration: none;
   color: var(--accent-color);
   font-family: var(--font-body);
+  
+  border-radius: 30%;
+  background-color: #7c8791;
 }
 
-
+.hero-title p {
+  padding: 2rem;
+}
 /*=======================*/
 
 .hero h1 {
